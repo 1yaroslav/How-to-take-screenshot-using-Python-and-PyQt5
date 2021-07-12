@@ -10,7 +10,7 @@ from PIL import ImageGrab
 class App(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.title = 'Take screenshot'
+        self.title = 'How To Take Screenshot using Python and PyQt5'
         self.left = 250
         self.top = 250
         self.width = 200
@@ -27,7 +27,7 @@ class App(QMainWindow):
         self.textbox.resize(280, 40)
         """
 
-        self.button = QPushButton('&Сделать скриншот', self)
+        self.button = QPushButton('&Take screenshot', self)
         self.button.move(20, 20)
 
         self.setWindowIcon(QIcon('icon.png'))
@@ -46,20 +46,19 @@ class App(QMainWindow):
                 name = f"screen{time_now}"
                 img.save(f"{path}/{name}.png", "png")
                 name_img = name
-                QMessageBox.question(self, 'Скриншот сделан!', f"Скриншот сохранен в директории {path}/" + name_img,QMessageBox.Ok,QMessageBox.Ok)
+                QMessageBox.question(self, 'Screenshot make!', f"Screenshot save in directory {path}/" + name_img,QMessageBox.Ok,QMessageBox.Ok)
                 break
             else:
                 try:
                     os.mkdir(path)
                 except OSError:
-                    #print("Директория %s уже есть на этом компьютере" % path)
                     time.sleep(2)
                     img = ImageGrab.grab()
                     time_now = time.strftime("%Y%m%d%h%M%S")
                     name = f"screen{time_now}"
                     img.save(f"{path}/{name}.png", "png")
                     name_img = name
-                    QMessageBox.question(self, 'Скриншот сделан!', f"Скриншот сохранен в директории {path}/" + name_img,QMessageBox.Ok,QMessageBox.Ok)
+                    QMessageBox.question(self, 'Screenshot make!', f"Screenshot save in directory {path}/" + name_img,QMessageBox.Ok,QMessageBox.Ok)
                     break
                 else:
                     time.sleep(2)
@@ -68,7 +67,7 @@ class App(QMainWindow):
                     name = f"screen{time_now}"
                     img.save(f"{path}/{name}.png", "png")
                     name_img = name
-                    QMessageBox.question(self, 'Скриншот сделан!', f"Скриншот сохранен в директории {path}/" + name_img,QMessageBox.Ok,QMessageBox.Ok)
+                    QMessageBox.question(self, 'Screenshot make!', f"Screenshot save in directory {path}/" + name_img,QMessageBox.Ok,QMessageBox.Ok)
                     break
 
 
